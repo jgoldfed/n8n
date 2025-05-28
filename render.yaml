@@ -1,0 +1,26 @@
+# Exported from Render on 2024-10-09T19:51:36Z
+services:
+- type: web
+  name: n8n
+  runtime: node
+  repo: https://github.com/jgoldfed/n8n
+  plan: starter
+  envVars:
+  - key: N8N_USER_FOLDER
+    sync: false
+  - key: N8N_PROTOCOL
+    sync: false
+  - key: N8N_PORT
+    sync: false
+  - key: N8N_HOST
+    sync: false
+  - key: N8N_EDITOR_BASE_URL
+    sync: false
+  region: virginia
+  buildCommand: pnpm install --frozen-lockfile; pnpm run build
+  startCommand: pnpm run start
+  disk:
+    name: disk
+    mountPath: /opt/render/.n8n
+    sizeGB: 1
+version: "1"
